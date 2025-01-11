@@ -13,7 +13,8 @@ export bindir
 export sysconfdir
 
 all clean check install uninstall SNESDev:
-	cd libs && sudo dpkg -i wiringpi-latest.deb
+	cd libs/confuse-2.7 && make
+	cd libs && sudo dpkg -i wiringpi_3.12_armhf.deb
 	cd src && $(MAKE) $@
 
 installservice uninstallservice:
