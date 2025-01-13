@@ -2,6 +2,7 @@ package = SNESDev
 version = 2.0
 tarname = $(package)
 distdir = $(tarname)-$(version)
+ARCH = $(shell getconf LONG_BIT)
 
 prefix      = /usr/local
 exec_prefix = $(prefix)
@@ -12,8 +13,19 @@ export exec_prefix
 export bindir
 export sysconfdir
 
+ifeq ($(ARCH),64)
+	WiringPiURL = https://github.com/WiringPi/WiringPi/releases/download/3.12/wiringpi_3.12_arm64.deb
+	WiringPiFile = wiringpi_3.12_arm64.deb
+else
+	WiringPiURL = https://github.com/WiringPi/WiringPi/releases/download/3.12/wiringpi_3.12_armhf.deb
+	WiringPiFile = wiringpi_3.12_armhf.deb
+endif
+
+
 all clean check install uninstall SNESDev:
-	apt-get -y install wiringpi libconfuse-dev
+	apt-get -y install libconfuse-dev
+	cd libs && wget $(WiringPiURL) -O $(WiringPiFile)
+	cd libs && sudo dpkg -i $(WiringPiFile)
 	cd src && $(MAKE) $@
 
 installservice uninstallservice:
