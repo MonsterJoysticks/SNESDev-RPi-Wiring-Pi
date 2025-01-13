@@ -2,7 +2,7 @@ package = SNESDev
 version = 2.0
 tarname = $(package)
 distdir = $(tarname)-$(version)
-LIBDIR = ../libs
+LIBDIR = libs
 ARCH = $(shell getconf LONG_BIT)
 
 prefix      = /usr/local
