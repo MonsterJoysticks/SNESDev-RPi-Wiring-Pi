@@ -1,7 +1,6 @@
 CC=gcc
 SRCDIR=.
 BUILDDIR=../build
-LIBDIR=../libs
 CFLAGS=-Wall -O3
 LIBS=-lwiringPi -lpthread -lrt -lconfuse 
 
@@ -16,7 +15,6 @@ all $(TARGET):$(OBJECTS)
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
 	@mkdir -p $(BUILDDIR)
-	@mkdir -p $(LIBDIR)
 	@echo " CC $<"; $(CC) $(CFLAGS) -MD -MF $(@:.o=.deps) -c -o $@ $<
 
 
