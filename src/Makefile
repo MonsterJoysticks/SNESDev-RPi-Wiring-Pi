@@ -24,7 +24,7 @@ check:
 
 clean:
 	@echo " Cleaning..."; $(RM) -r $(BUILDDIR) $(TARGET)
-
+	@echo " Cleaning WiringPi..."; $(RM) -r $(BUILDDIR) $(TARGET)
 -include $(DEPS)
 
 install:
