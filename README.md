@@ -20,7 +20,7 @@ SNESDev is downloaded and installed with
 
 ```shell
 cd
-git clone git://github.com/petrockblog/SNESDev-RPi.git
+git clone https://github.com/MonsterJoysticks/SNESDev-RPi-Wiring-Pi
 cd SNESDev-RPi
 sudo make
 sudo make install
