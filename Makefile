@@ -2,7 +2,6 @@ package = SNESDev
 version = 2.0
 tarname = $(package)
 distdir = $(tarname)-$(version)
-LIBDIR = libs
 
 prefix      = /usr/local
 exec_prefix = $(prefix)
@@ -14,22 +13,6 @@ export bindir
 export sysconfdir
 
 all check install uninstall SNESDev:
-	@mkdir -p $(LIBDIR)
-	apt-get -y install libconfuse-dev
-
-	if [ ! -d "libs/WiringPi" ]; then \
-		cd libs && git clone https://github.com/WiringPi/WiringPi.git; \
-    fi
-	
-	cd libs/WiringPi && sudo ./build
-	cd src && $(MAKE) $@
-
-clean:
-
-	if [ -d "libs/WiringPi" ]; then \
-		@echo " Cleaning WiringPi..."; rm -r libs/WiringPi; \
-	fi
-
 	cd src && $(MAKE) $@
 
 installservice uninstallservice:
