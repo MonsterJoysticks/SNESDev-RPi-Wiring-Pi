@@ -1,7 +1,9 @@
-SNESDev-RPi
-===========
+SNESDev-RPi-Wiring-Pi
+=====================
 
-SNESDev is a user-space driver for the RetroPie GPIO Adapter for the Raspberry Pi. It implements two (S)NES game controllers and a virtual keyboard for up to two (S)NES controllers and a button that are connected to the GPIO pins of the Raspberry Pivia the RetroPie GPIO Adapter (http://blog.petrockblock.com/2012/10/21/the-retropie-gpio-adapter/). 
+SNESDev is a user-space driver for the RetroPie GPIO Adapter for the Raspberry Pi. It implements two (S)NES game controllers and a virtual keyboard for up to two (S)NES controllers and a button that are connected to the GPIO pins of the Raspberry Pi via the RetroPie GPIO Adapter (http://blog.petrockblock.com/2012/10/21/the-retropie-gpio-adapter/) or the MonsterJoysticks Arcade Controller GPIO Interface (https://monsterjoysticks.com/arcade-controller-gpio-interface-for-raspberry-pi).
+
+This Version of the driver has been adapted from the original (https://github.com/petrockblog/SNESDev-RPi) version and modified to use the Wiring Pi (https://github.com/petrockblog/SNESDev-RPi) GPIO library.
 
 Installation
 ------------
@@ -15,18 +17,27 @@ sudo apt-get update
 sudo apt-get install -y git
 ```
 
+Install the following dependencies:
+
+```shell
+sudo apt-get install -y libconfuse-dev
+cd
+git clone https://github.com/WiringPi/WiringPi.git
+cd WiringPi
+sudo ./build
+```
 
 SNESDev is downloaded and installed with
 
 ```shell
 cd
 git clone https://github.com/MonsterJoysticks/SNESDev-RPi-Wiring-Pi
-cd SNESDev-RPi
+cd SNESDev-RPi-Wiring-Pi
 sudo make
 sudo make install
 ```
 
-The lines above build and install two needed libraries and SNESDev-Rpi. The sudo-command is needed for the installation of the two libraries. It is recommend to run SNESDev as a service, which is described [below](https://github.com/petrockblog/SNESDev-RPi#running-snesdev-as-a-service).
+The lines above build and install two needed libraries and SNESDev-Rpi. The sudo-command is needed for the installation of the two libraries. It is recommend to run SNESDev as a service, which is described [below](https://github.com/MonsterJoysticks/SNESDev-RPi-Wiring-Pi#running-snesdev-as-a-service).
 
 Alternatively, you can use the RetroPie Setup Script (https://github.com/petrockblog/RetroPie-Setup) for installing and configuring SNESDev.
 
