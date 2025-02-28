@@ -2,7 +2,7 @@ CC=gcc
 SRCDIR=.
 BUILDDIR=../build
 CFLAGS=-Wall -O3
-LIBS=-lwiringPi -lpthread -lrt -lconfuse 
+LIBS=-lwiringPi -lpthread -lrt -lconfuse $(LDFLAGS)
 
 TARGET := SNESDev
 SRCEXT := c
